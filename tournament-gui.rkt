@@ -4,7 +4,7 @@
 
   ; Make a frame by instantiating the frame% class
   (define frame (new frame%
-                     [label "Example"]
+                     [label "Tournament"]
                      [width 300]
                      [height 300]
                      ))
