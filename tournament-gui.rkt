@@ -4,14 +4,6 @@
 
 (provide show-comparision)
 
-(define (show-results points memberDirectory)
-  (let* (
-        [results-sorted (sort (hash->list points) #:key cdr >)]
-        [results-in-vector (map (lambda (cell) (vector (string-replace (car cell) memberDirectory "") (cdr cell))) results-sorted)]
-        )
-    (plot (discrete-histogram results-in-vector) #:out-file "resultados.png")
-   )
-  )
 
 (define (show-comparision competetitions memberDirectory)
 
@@ -20,6 +12,24 @@
   (define current-competition "")
   (define image-a "")
   (define image-b "")
+
+  (define width 300)
+  (define height 300)
+
+
+  (define (show-results points memberDirectory)
+    (let* (
+           [results-sorted (sort (hash->list points) #:key cdr >)]
+           [results-in-vector (map (lambda (cell) (vector (string-replace (car cell) memberDirectory "") (cdr cell))) results-sorted)]
+           )
+      (plot (discrete-histogram results-in-vector)
+            #:out-file "resultados.png"
+            #:width (* width 3)
+            #:height (* height 3)
+            )
+      )
+    )
+
 
   (define (initialize-values)
     (set! current-competition (car competetitions))
