@@ -1,4 +1,4 @@
-#lang racket/gui
+#lang racket
 
 (require "tournament-generator.rkt")
 (require "tournament-gui.rkt")
