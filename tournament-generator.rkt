@@ -1,5 +1,9 @@
 #lang racket
 
+
+(provide generate-tournamet)
+
+
 (define (generate-fights member-a rest-members)
   (map
    (lambda (b) (cons member-a b))
@@ -14,7 +18,7 @@
        [first-element (car cell)]
        [second-element (cdr cell)]
        )
-      (if (> first-element second-element)
+      (if (string>? first-element second-element)
           (cons second-element first-element)
           (cons first-element second-element)
           )
@@ -26,14 +30,12 @@
       (
        [tournament (map (lambda (a) (generate-fights a members)) members)]
        )
-      (remove-duplicates
-       (map sort-cons 
-            (foldr append '() tournament)
-            )
+      (shuffle
+       (remove-duplicates
+        (map sort-cons 
+             (foldr append '() tournament)
+             )
+        )
        )
     )
   )
-
-(define members (list 1 2 3 4 5))
-
-(generate-tournamet members)
