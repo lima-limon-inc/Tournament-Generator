@@ -24,6 +24,10 @@ When the program ends, you'll have a nice bar chart of the results
 ## Demo video
 This demo video shows a use case. In this case, determine which Smiling Friends episode is best (with only a few episodes for brevity)
 
+
+https://github.com/lima-limon-inc/Tournament-Generator/assets/65001595/c056a322-2f50-4516-a89b-46d3a0dbdfbf
+
+
 ## TODO
 (a lot)
 
