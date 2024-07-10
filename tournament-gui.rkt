@@ -36,6 +36,7 @@
     (set! image-a (string-append memberDirectory (car current-competition)))
     (set! image-b (string-append memberDirectory (cdr current-competition)))
     )
+
   (initialize-values)
 
   (define (update-competition)
@@ -63,8 +64,8 @@
   ; Make a frame by instantiating the frame% class
   (define frame (new frame%
                      [label "Tournament"]
-                     [width 300]
-                     [height 300]
+                     [width width]
+                     [height height]
                      ))
   
   ; Make a static text message in the frame
@@ -81,20 +82,20 @@
                           [parent my-hori-panel]))
 
   (define right-panel (new vertical-panel%
-                          [parent my-hori-panel]))
+                           [parent my-hori-panel]))
 
   (define left-canvas (new canvas% 
-       [parent left-panel]
-       [paint-callback
-        (lambda (canvas dc)
-          (send dc draw-bitmap (read-bitmap image-a) 0 0))]))
+                           [parent left-panel]
+                           [paint-callback
+                            (lambda (canvas dc)
+                              (send dc draw-bitmap (read-bitmap image-a) 0 0))]))
 
   (define right-canvas (new canvas% 
-       [parent right-panel]
-       [paint-callback
-        (lambda (canvas dc)
-          (send dc draw-bitmap (read-bitmap image-b) 0 0)
-          )]))
+                            [parent right-panel]
+                            [paint-callback
+                             (lambda (canvas dc)
+                               (send dc draw-bitmap (read-bitmap image-b) 0 0)
+                               )]))
 
   ; Make a button in the frame
   (new button%
@@ -103,11 +104,11 @@
        ; Callback procedure for a button click:
        [callback (lambda (button event)
                    (begin
-                   (hash-set! points image-a (+ (hash-ref points image-a 0) 1))
-                   (update-competition)
-                   (send left-canvas refresh-now)
-                   (send right-canvas refresh-now)
-                   )
+                     (hash-set! points image-a (+ (hash-ref points image-a 0) 1))
+                     (update-competition)
+                     (send left-canvas refresh-now)
+                     (send right-canvas refresh-now)
+                     )
                    )])
 
   (new button%
@@ -116,11 +117,11 @@
        ; Callback procedure for a button click:
        [callback (lambda (button event)
                    (begin
-                   (hash-set! points image-b (+ (hash-ref points image-b 0) 1))
-                   (update-competition)
-                   (send left-canvas refresh-now)
-                   (send right-canvas refresh-now)
-                   )
+                     (hash-set! points image-b (+ (hash-ref points image-b 0) 1))
+                     (update-competition)
+                     (send left-canvas refresh-now)
+                     (send right-canvas refresh-now)
+                     )
                    )])
 
   ; Show the frame by calling its show method
