@@ -1,7 +1,7 @@
 # Tournament generator
 
 ## Introduction
-This program is used to determine which item you like best among a list items; generating a [Round-robin tournament](https://en.wikipedia.org/wiki/Round-robin_tournament). Like so:
+This program is used to determine which item you like best among a list of items; generating a [Round-robin tournament](https://en.wikipedia.org/wiki/Round-robin_tournament). Like so:
 
 ![Round-robin](https://upload.wikimedia.org/wikipedia/commons/b/b7/Round-robin_tournament_10teams_en.png)
 
